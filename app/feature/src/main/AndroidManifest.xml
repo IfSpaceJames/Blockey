@@ -2,25 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.ifspace.blockey.feature">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
-        <activity android:name=".MainActivity">
-            <intent-filter android:order="1">
-                <action android:name="android.intent.action.VIEW" />
+        <!--<receiver-->
+            <!--android:name=".BootCompletedIntentReceiver"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
+        <!--<service-->
+            <!--android:name=".BackgroundService"-->
+            <!--android:exported="false"/>-->
+         <activity android:name=".MainActivity">
+         <intent-filter android:order="1">
+         <action android:name="android.intent.action.VIEW" />
 
-                <data
-                    android:host="ifspace.org"
-                    android:pathPattern="/.*"
-                    android:scheme="https" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+         <category android:name="android.intent.category.BROWSABLE" />
+         <category android:name="android.intent.category.DEFAULT" />
+
+
+         <data
+         android:host="ifspace.org"
+         android:pathPattern="/.*"
+         android:scheme="https" />
+         </intent-filter>
+         <intent-filter>
+         <action android:name="android.intent.action.MAIN" />
+
+
+         <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         </activity>
     </application>
 
 </manifest>
